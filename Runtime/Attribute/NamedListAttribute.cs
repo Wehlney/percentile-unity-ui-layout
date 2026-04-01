@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Extensions.Layout.Attribute
+namespace Wehlney.PercentileUILayout
 {
     [AttributeUsage(AttributeTargets.Field)]
     public sealed class NamedListAttribute : PropertyAttribute { }

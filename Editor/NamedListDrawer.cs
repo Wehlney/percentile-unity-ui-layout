@@ -1,9 +1,9 @@
-using Extensions.Layout.Attribute;
+using Wehlney.PercentileUILayout;
 using UnityEditor;
 using UnityEditorInternal;
 using UnityEngine;
 
-namespace Editor
+namespace Wehlney.PercentileUILayout.Editor
 {
     [CustomPropertyDrawer(typeof(NamedListAttribute))]
     public sealed class NamedListDrawer : PropertyDrawer
