@@ -1,6 +1,6 @@
 {
   "name": "com.wehlney.percentile-ui-layout",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "displayName": "Percentile UI Layout",
   "description": "Percent-based horizontal/vertical Unity UI LayoutGroups with NamedList inspector support.",
   "unity": "2020.3",
