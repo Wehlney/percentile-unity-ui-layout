@@ -10,9 +10,6 @@ namespace Wehlney.PercentileUILayout.Layout
 [DisallowMultipleComponent]
 public class PercentHorizontalLayoutAnchors : LayoutGroup
 {
-    // =====================================================================
-    // Child Rule
-    // =====================================================================
     [Serializable]
     public sealed class ChildRule
     {
@@ -47,9 +44,6 @@ public class PercentHorizontalLayoutAnchors : LayoutGroup
         public bool IsActiveAndValid => child != null && child.gameObject.activeInHierarchy;
     }
 
-    // =====================================================================
-    // Parent Settings
-    // =====================================================================
     [Header("Parent Padding & Spacing (percent)")]
     [Range(0f, 200f)] public float paddingLeftPercent = 0f;
     [Range(0f, 200f)] public float paddingRightPercent = 0f;
@@ -73,9 +67,6 @@ public class PercentHorizontalLayoutAnchors : LayoutGroup
 
     private readonly DrivenRectTransformTracker _tracker = new();
 
-    // =====================================================================
-    // Unity Lifecycle
-    // =====================================================================
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -109,9 +100,6 @@ public class PercentHorizontalLayoutAnchors : LayoutGroup
         ForceRebuildNow();
     }
 
-    // =====================================================================
-    // Child Sync
-    // =====================================================================
     [ContextMenu("Sync Children")]
     public void SyncChildren()
     {
@@ -212,18 +200,12 @@ public class PercentHorizontalLayoutAnchors : LayoutGroup
         return map;
     }
 
-    // =====================================================================
-    // LayoutGroup Contract
-    // =====================================================================
     public override void CalculateLayoutInputHorizontal() => base.CalculateLayoutInputHorizontal();
     public override void CalculateLayoutInputVertical() { }
 
     public override void SetLayoutHorizontal() => ApplyLayout();
     public override void SetLayoutVertical() => ApplyLayout();
 
-    // =====================================================================
-    // Layout Execution
-    // =====================================================================
     private void ApplyLayout()
     {
         _tracker.Clear();
@@ -280,9 +262,6 @@ public class PercentHorizontalLayoutAnchors : LayoutGroup
         }
     }
 
-    // =====================================================================
-    // Normalized Rect Model
-    // =====================================================================
     private readonly struct NormalizedRect
     {
         public readonly float left, right, top, bottom;
@@ -342,9 +321,6 @@ public class PercentHorizontalLayoutAnchors : LayoutGroup
         child.sizeDelta = Vector2.zero;
     }
 
-    // =====================================================================
-    // Z Handling
-    // =====================================================================
     private void ForceZ(RectTransform child, float z)
     {
         var ap3 = child.anchoredPosition3D;
@@ -356,9 +332,6 @@ public class PercentHorizontalLayoutAnchors : LayoutGroup
         child.localPosition = lp;
     }
 
-    // =====================================================================
-    // Math Helpers
-    // =====================================================================
     private static float EffectiveSizePercent(ChildRule rule, float defaultPercent)
         => rule.overrideSize ? rule.sizePercent : defaultPercent;
 
@@ -382,9 +355,6 @@ public class PercentHorizontalLayoutAnchors : LayoutGroup
     private static float Clamp01(float v) => Mathf.Clamp01(v);
     private static float Max(float a, float b) => Mathf.Max(a, b);
 
-    // =====================================================================
-    // Utility
-    // =====================================================================
     private int CountActiveChildren()
     {
         int count = 0;
